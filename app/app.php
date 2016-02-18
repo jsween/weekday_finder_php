@@ -14,13 +14,11 @@
     });
 
     $app->get("/action", function() use ($app) {
-        $my_FindAndReplace = new FindAndReplace;
+        $my_Swap = new Swap;
         if($_GET['button'] == 'whole') {
-            // use the method for replacing whole words
-            $message_text = $my_FindAndReplace->replaceWords($_GET['phrase'] , $_GET['word-to-replace'] , $_GET['replacement']);
+            $message_text = $my_Swap->replaceWords($_GET['phrase'] , $_GET['word-to-replace'] , $_GET['replacement']);
         } else {
-            // use the method for any letters
-            $message_text = $my_FindAndReplace->replaceAnyMatch($_GET['phrase'] , $_GET['word-to-replace'] , $_GET['replacement']);
+            $message_text = $my_Swap->replaceAnyMatch($_GET['phrase'] , $_GET['word-to-replace'] , $_GET['replacement']);
         }
 
         return $app['twig']->render('index.html.twig', array(
