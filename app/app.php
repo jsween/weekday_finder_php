@@ -21,7 +21,8 @@
             'form' => true,
             'message' => array(
                 'type' => 'info',
-                'text' => 'That was a ' . $result)
+                'text' => 'That was a ' . $result
+            )
         ));
     });
 
