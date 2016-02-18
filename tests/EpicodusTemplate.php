@@ -1,5 +1,5 @@
 <?php
-
+    /*This was provided by Epicodus*/
     require_once "src/RockPaperScissors.php";
 
     class RockPaperScissorsTest extends PHPUnit_Framework_TestCase

@@ -121,6 +121,7 @@
             //Assert
             $this->assertEquals("Player 2", $result);
         }
+        //Will either result in F(tie or player 2) or T
         function test_computer_random()
         {
             //Arrange

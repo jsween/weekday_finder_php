@@ -5,7 +5,7 @@
     class Game
     {
         //playGame takes in the input hand 1 and 2
-        function playGame($hand_one, $hand_two)
+        function playGame($hand_one, $hand_two = 'Computer')
         {
             //computer
             if($hand_two == 'Computer') {
