@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/Scrabble.php";
+    require_once __DIR__."/../src/Weekday.php";
 
     $app = new Silex\Application();
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -13,16 +13,15 @@
         ));
     });
 
-    $app->get("/score", function() use ($app) {
-        $my_Scrabble = new Scrabble;
-        $result = $my_Scrabble->calcScore($_GET['word']);
-        var_dump($result);
+    $app->get("/day", function() use ($app) {
+        $my_Day = new Weekday;
+        $result = $my_Day->findDay($_GET['month'], $_GET['day'], $_GET['year']);
+        var_dump('Result is: ' . $result);
         return $app['twig']->render('index.html.twig', array(
             'form' => true,
             'message' => array(
                 'type' => 'info',
-                'text' => $_GET['word'] . " is worth " . $result . " points."
-            )
+                'text' => 'That was a ' . $result)
         ));
     });
 
