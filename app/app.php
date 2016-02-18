@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/Swap.php";
+    require_once __DIR__."/../src/Scrabble.php";
 
     $app = new Silex\Application();
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -13,19 +13,15 @@
         ));
     });
 
-    $app->get("/action", function() use ($app) {
-        $my_Swap = new Swap;
-        if($_GET['button'] == 'whole') {
-            $message_text = $my_Swap->replaceWords($_GET['phrase'] , $_GET['word-to-replace'] , $_GET['replacement']);
-        } else {
-            $message_text = $my_Swap->replaceAnyMatch($_GET['phrase'] , $_GET['word-to-replace'] , $_GET['replacement']);
-        }
-
+    $app->get("/score", function() use ($app) {
+        $my_Scrabble = new Scrabble;
+        $result = $my_Scrabble->calcScore($_GET['word']);
+        var_dump($result);
         return $app['twig']->render('index.html.twig', array(
             'form' => true,
             'message' => array(
-                'text' => $message_text,
-                'type' => 'info'
+                'type' => 'info',
+                'text' => $_GET['word'] . " is worth " . $result . " points."
             )
         ));
     });

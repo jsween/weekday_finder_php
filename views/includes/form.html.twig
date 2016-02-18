@@ -1,18 +1,9 @@
 {% if form %}
-  <form action='/action'>
-    <div class="form-group">
-      <label for='phrase'>Please enter a phrase to search through:</label>
-      <input name='phrase' id='phrase' type='text' class='form-control'>
-    </div>
-    <div class="form-group">
-      <label for='word-to-replace'>Enter a word to replace:</label>
-      <input name='word-to-replace' id='word-to-replace' type='text' class='form-control'>
-    </div>
-    <div class="form-group">
-      <label for='replacement'>Enter a replacement word or random letters:</label>
-      <input name='replacement' id='replacement' type='text' class='form-control'>
-    </div>
-    <button type='submit' class='btn btn-success' name='button' value='whole'>Replace only whole words</button>
-    <button type='submit' class='btn btn-success' name='button' value='any'>Replace any appearances</button>
-  </form>
+<form action='/score'>
+  <div class="form-group">
+    <label for='word'>Enter the word here:</label>
+    <input name='word' id='word' type='text' class='form-control'>
+  </div>
+  <button type='submit' class='btn btn-success'>Submit</button>
+</form>
 {% endif %}
