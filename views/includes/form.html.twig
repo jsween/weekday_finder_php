@@ -1,0 +1,17 @@
+{% if form %}
+  <form action='/day'>
+    <div class="form-group">
+        <label for='month'>Month:</label>
+        <input name='month' id='month' type='number' class='form-control' placeholder='2'>
+    </div>
+    <div class="form-group">
+      <label for='day'>Day:</label>
+      <input name='day' id='day' type='number' class='form-control' placeholder='18'>
+    </div>
+    <div class="form-group">
+      <label for='year'>Year:</label>
+      <input name='year' id='year' type='year' class='form-control' placeholder='2016'>
+    </div>
+    <button type='submit' class='btn btn-success'>Discover</button>
+  </form>
+{% endif %}
